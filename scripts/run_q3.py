@@ -23,7 +23,7 @@ import argparse
 def main():
     parser = argparse.ArgumentParser(description="Q3: Bias-Variance Decomposition across R Stratified Resamples")
     parser.add_argument("--resamples", "-r", type=int, default=None, help="Number of resamples (default from config: 30)")
-    parser.add_argument("--quick", action="store_true", help="Quick mode (R=2 resamples) for live demonstration/viva")
+    parser.add_argument("--quick", action="store_true", help="Quick mode (R=2 resamples) for quick dry-run testing")
     parser.add_argument("--rerun-all", action="store_true", help="Force complete rerun of all 30 resamplings (~3 hours)")
     args = parser.parse_args()
 

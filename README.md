@@ -168,15 +168,3 @@ The complete CVPR two-column manuscript is located in `latex/main.tex`.
 
 - **Variance Removed by Bagging on Unbounded Trees:** **$77.66\%$** ($0.4002 \to 0.0894$).
 
----
-
-## 7. Viva / Defense Q&A Cheatsheet
-
-1. **Why does Bagging dramatically outperform Boosting on this dataset?**  
-   *Answer:* The Olivetti dataset has 40 classes with only 6 training images per class in 4096 dimensions. Boosting sequentially reweights misclassified images, overconcentrating probability mass on noisy/outlier faces ($35\%$ of weight on top-10 images). Bagging, conversely, samples training points uniformly with replacement and averages independent subspace splits, drastically suppressing variance without distorting the data distribution.
-
-2. **Why does Bagging maintain $80.0\%$ accuracy when faces are center-masked?**  
-   *Answer:* A single decision tree greedily selects high-importance features at the root (often nose/eyes). When these are occluded, the tree fails catastrophically. In Bagging ($B=200$), different bootstrap resamples produce different root splits focusing on peripheral features (cheeks, jawline, forehead), enabling consensus voting to easily overcome localized occlusion.
-
-3. **What is the mathematical threshold for weak learners in SAMME?**  
-   *Answer:* For $K$ classes, random guessing error is $1 - 1/K$. In SAMME, the weight is $\alpha_t = \log((1-\epsilon_t)/\epsilon_t) + \log(K-1)$. When $\epsilon_t < 1 - 1/K = 39/40 = 0.975$, $\alpha_t > 0$, guaranteeing positive contribution. If $\epsilon_t \ge 0.975$, the learner is worse than chance and boosting stops.

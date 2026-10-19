@@ -355,14 +355,6 @@ Boosting ($d=4, T=100$) & 0.4625 & 0.5125 & 0.8850 & 0.0173 \\
 \end{table}
 
 % =========================================================================
-\section{Discussion and Viva Readiness}
-\label{sec:discussion}
-When explaining these findings in defense:
-\begin{enumerate}
-    \item \textbf{Why does Bagging outperform Boosting here?} The Olivetti dataset features 40 classes with only 6 training images per class in 4096 dimensions. Boosting repeatedly multiplies the weights of unclassifiable outlier images, leading to sample weight distortion and overfitting. In contrast, Bagging averages across diverse orthogonal subspace splits without warping the underlying distribution.
-    \item \textbf{Why does Bagging withstand occlusion?} An occluded $16 \times 16$ box destroys central facial features. Because bootstrap sampling produces distinct greedy split choices at the tree root, many individual trees in the $B=200$ ensemble rely on peripheral features (jawline, hairline, cheekbones), thereby outvoting damaged branches.
-\end{enumerate}
-
 \section{Conclusion}
 \label{sec:conclusion}
 Through rigorous experimentation and theoretical analysis, we demonstrated that Bagging unconstrained decision trees achieves an outstanding $88.75\%$ accuracy on the 40-class Olivetti face dataset, retaining $80.00\%$ accuracy under severe occlusion. The empirical decomposition across 30 resamples validates that Bagging eliminates up to $77.66\%$ of estimator variance, outperforming sequential boosting in small-sample high-dimensional vision tasks.
