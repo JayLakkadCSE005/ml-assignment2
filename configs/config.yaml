@@ -4,7 +4,7 @@
 student:
   name: "Jay"
   roll_number: "M26CSE005"
-  github_repo: "https://github.com/Jay/ml-assignment2"
+  github_repo: "https://github.com/JayLakkadCSE005/ml-assignment2"
 
 random_seed: 26005
 
