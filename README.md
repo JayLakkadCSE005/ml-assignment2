@@ -106,7 +106,7 @@ python3 scripts/run_q2.py
 - Runs 3-class toy example ($N=6, K=3$) with SAMME single step and error cutoff $1 - 1/K = 0.6667$.
 - Performs hyperparameter grid on Olivetti: depths $\{1, 2, 3, 4\} \times$ rounds $\{10, 25, 50, 100\}$.
 - Benchmarks Bagging vs. SAMME Boosting on 25, 50, 100 learners (accuracy and training time).
-- Identifies hardest training sample (sample #195, Class 32) and logs its weight trajectory across 100 rounds.
+- Identifies hardest training sample (sample #199, Class 33) and logs its weight trajectory across 100 rounds.
 - Outputs saved to `logs/q2_results.txt` and `logs/q2_results.json`.
 
 ### Question 3: Empirical Bias-Variance Decomposition
@@ -115,7 +115,7 @@ python3 scripts/run_q3.py
 ```
 - Performs $R=30$ independent stratified training refits (sampling 6 with replacement per class).
 - Computes empirical $\text{Bias}^2$ and $\text{Variance}$ under multi-class squared loss.
-- Analyzes the effect of tree depth ($d=4, 16, \text{None}$) on variance reduction (up to $77.66\%$ variance removed by Bagging).
+- Analyzes the effect of tree depth ($d=4, 16, \text{None}$) on variance reduction (up to $96.07\%$ variance removed by Bagging).
 - Outputs saved to `logs/q3_results.txt` and `logs/q3_results.json`.
 
 ### Generate Publication Figures
@@ -143,7 +143,7 @@ The complete CVPR two-column manuscript is located in `latex/main.tex`.
 - **Author:** Jay
 - **Roll Number:** M26CSE005
 - **Repository:** https://github.com/Jay/ml-assignment2
-- **Final Commit Hash:** Run `git rev-parse HEAD` and insert into `latex/main.tex`.
+- **Final Commit Hash:** `3910f1ef770090f19f6c4421485c37a5c77fe480` (`3910f1e`)
 
 ---
 
