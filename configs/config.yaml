@@ -1,0 +1,51 @@
+# Configuration file for Machine Learning Assignment 2
+# Generated for Roll Number: M26CSE005
+
+student:
+  name: "Jay"
+  roll_number: "M26CSE005"
+  github_repo: "https://github.com/Jay/ml-assignment2"
+
+random_seed: 26005
+
+dataset:
+  name: "Olivetti Faces"
+  split_file: "splits/olivetti_splits.npz"
+  num_identities: 40
+  train_samples_per_id: 6
+  val_samples_per_id: 2
+  test_samples_per_id: 2
+  image_shape: [64, 64]
+  mask_region: [24, 40, 24, 40]
+
+question_1:
+  grid_search:
+    depths: [2, 4, 8, 16, null]
+    min_samples_leaf: [1, 2, 4]
+  frozen_single_tree:
+    max_depth: null
+    min_samples_leaf: 1
+  bagging:
+    b_values: [1, 5, 10, 25, 50, 100, 200]
+    final_b: 200
+
+question_2:
+  toy_example:
+    n_samples: 6
+    num_classes: 3
+    depth: 1
+  samme_grid:
+    depths: [1, 2, 3, 4]
+    rounds: [10, 25, 50, 100]
+  selected_model:
+    depth: 4
+    rounds: 100
+  learner_comparison:
+    counts: [25, 50, 100]
+
+question_3:
+  bias_variance:
+    num_resamples_R: 30
+    eval_depths: [4, 16, null]
+    bagging_trees: [100, 200]
+    eval_metrics: ["bias_squared", "variance", "test_accuracy"]

@@ -1,0 +1,42 @@
+======================================================================
+QUESTION 1: DECISION TREES & BAGGING ENSEMBLE
+======================================================================
+
+--- Q1(a): Hyperparameter Tuning across Depths & Min Leaf Samples ---
+max_depth  min_samples_leaf  train_acc  val_acc  test_acc  n_leaves  mean_samples_per_leaf
+        2                 1   0.075000   0.0625    0.0500         3              80.000000
+        2                 2   0.075000   0.0625    0.0500         3              80.000000
+        2                 4   0.075000   0.0625    0.0500         3              80.000000
+        4                 1   0.125000   0.1125    0.1000         5              48.000000
+        4                 2   0.125000   0.1125    0.1000         5              48.000000
+        4                 4   0.125000   0.1125    0.1000         5              48.000000
+        8                 1   0.225000   0.1875    0.1625         9              26.666667
+        8                 2   0.225000   0.1875    0.1625         9              26.666667
+        8                 4   0.225000   0.1875    0.1625         9              26.666667
+       16                 1   0.425000   0.2750    0.2500        17              14.117647
+       16                 2   0.425000   0.2750    0.2500        17              14.117647
+       16                 4   0.425000   0.2750    0.2500        17              14.117647
+     None                 1   1.000000   0.6125    0.4625        46               5.217391
+     None                 2   0.987500   0.5875    0.4875        43               5.581395
+     None                 4   0.979167   0.5750    0.4375        41               5.853659
+
+Best Validation Config: max_depth=None, min_samples_leaf=1
+Train Acc: 1.0000 | Val Acc: 0.6125 | Test Acc: 0.4625
+
+--- Q1(b) & Q1(c): Bootstrap Aggregation Metrics across B ---
+Theoretical Distinct per Bootstrap: Exact = 151.89 | Asymptotic = 151.71
+  B  empirical_distinct  oob_acc  disagreement  vote_margin
+  1                 149 0.219780      0.000000     1.000000
+  5                 239 0.336406      0.425417     0.602500
+ 10                 240 0.415966      0.430000     0.635000
+ 25                 240 0.595833      0.421417     0.678333
+ 50                 240 0.720833      0.421041     0.695833
+100                 240 0.745833      0.424393     0.699417
+200                 240 0.812500      0.421125     0.705729
+
+--- Q1(d): Robustness to Occlusion (Clean vs Center-Masked Test Set) ---
+               Model Test Condition  Accuracy  Confidence
+Single Tree (d=None)          Clean    0.4625    1.000000
+Single Tree (d=None)         Masked    0.4625    1.000000
+     Bagging (B=200)          Clean    0.8875    0.395688
+     Bagging (B=200)         Masked    0.8000    0.291750
