@@ -35,7 +35,3 @@ Thumbs.db
 *.fls
 *.fdb_latexmk
 
-# Private study notes (not for submission)
-VIVA_NOTES.md
-*viva*
-
